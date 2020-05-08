@@ -2,9 +2,9 @@
 
 OpenStreetMapWidget allows you to add location picker and place autocompletion on your Flutter projet (Android and IOS).
 
-[Imgur](https://i.imgur.com/o9KKNv5.jpg)
-[Imgur](https://i.imgur.com/wihYshZ.jpg)
-[Imgur](https://i.imgur.com/RYVuNFK.jpg)
+![alt text](https://i.imgur.com/o9KKNv5.jpg)
+![alt text](https://i.imgur.com/wihYshZ.jpg)
+![alt text](https://i.imgur.com/RYVuNFK.jpg)
 
 
 ## Getting Started
