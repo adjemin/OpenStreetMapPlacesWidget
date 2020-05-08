@@ -43,18 +43,127 @@ flutter:
 
 ## Example
 ```
-      void displayOpenStreetMapPlacesUI() async{
-        Place place = await Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) =>
-            new OpenStreetMapPlacesWidget()) );
+import 'package:flutter/material.dart';
 
-        if(place != null){
+import 'package:latlong/latlong.dart';
+import 'package:open_street_map_widget/openstreetmap_places/OpenStreetMapPlacesWidget.dart';
+import 'package:open_street_map_widget/openstreetmap_places/model/Place.dart';
+import 'package:open_street_map_widget/util/country_picker/country.dart';
 
-            var address = place.title;
 
-            var lastLocation = new LatLng(double.parse(place.lat), double.parse(place.lon));
 
-        }
-      }
+class MyHomePage extends StatefulWidget {
+
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+
+  TextEditingController locationController = new TextEditingController();
+
+
+  String address = "";
+
+  // Location lastLocation;
+  LatLng lastLocation;
+
+  Country _currentCountry;
+
+  @override
+  void initState() {
+
+    super.initState();
+
+    _currentCountry = Country.CI;
+
+
+  }
+
+
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.white),
+        title: new Text('OpenStreetMapWidget'),
+      ),
+      body: new SingleChildScrollView(
+        child: new Container(
+          color: Colors.white,
+          padding: EdgeInsets.all(18.0),
+          child: new Column(
+            children: <Widget>[
+
+              new InkWell(
+                  onTap: (){
+
+                    displayOpenStreetMapPlacesUI();
+                    // displayGooglePlacesAutocompleteUI();
+
+                  },
+                  child: new Container(
+                    padding: EdgeInsets.only(left:10.0, top:18.0, right: 10.0, bottom:18.0),
+                    decoration: BoxDecoration(
+                        border: Border.all(color: Colors.black54),
+                        borderRadius: BorderRadius.circular(5.0)
+                    ),
+                    child: new Row(
+                      children: <Widget>[
+                        Icon(Icons.location_on,color: Colors.pinkAccent ),
+                        SizedBox(width: 10.0,),
+                        (lastLocation == null)?
+                        new Text("Emplacement", style: new TextStyle(color: Colors.black38, fontSize: 18.0),):
+                        new Container(
+                          width: MediaQuery.of(context).size.width - 100.0,
+                          child: new Text(address, style: new TextStyle(color: Colors.black, fontSize: 18.0),),
+                        )
+
+                      ],
+                    ),
+                  )
+              ),
+
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  void displayOpenStreetMapPlacesUI() async{
+    Place place = await Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) =>
+        new OpenStreetMapPlacesWidget()) );
+
+    if(place != null){
+      setState(() {
+        address = place.title;
+
+        lastLocation = new LatLng(double.parse(place.lat), double.parse(place.lon));
+      });
+    }
+  }
+
+
+}
+
 ```
+
+Licences
+--------
+    Copyright 2020 Adjemin LTD.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
