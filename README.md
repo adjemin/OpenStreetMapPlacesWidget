@@ -1,6 +1,6 @@
-# open_street_map_widget
+# OpenStreetMapWidget
 
-A new Flutter project.
+OpenStreetMapWidget allows you to add location picker and place autocompletion on your Flutter projet (Android and IOS).
 
 ## Getting Started
 
