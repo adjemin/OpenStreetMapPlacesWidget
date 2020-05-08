@@ -27,4 +27,34 @@ dev_dependencies:
   build_runner: ^1.0.0
   json_serializable: ^3.0.0
 
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/countries.json
+    - assets/flags/
+
+```
+
+## Example
+```
+      void displayOpenStreetMapPlacesUI() async{
+        Place place = await Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) =>
+            new OpenStreetMapPlacesWidget()) );
+
+        if(place != null){
+
+            var address = place.title;
+
+            var lastLocation = new LatLng(double.parse(place.lat), double.parse(place.lon));
+
+        }
+      }
 ```
