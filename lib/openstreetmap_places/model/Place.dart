@@ -1,16 +1,16 @@
 class Place{
 
-  int place_id;
-  int osm_id;
-  String osm_type;
-  String licence;
-  String lat;
-  String lon;
-  String display_name;
-  String class_entity;
-  String type; //college, university, pharmacy, residential, city_gate
-  double importance;
-  String icon;
+  final int place_id;
+  final int osm_id;
+  final String osm_type;
+  final String licence;
+  final String lat;
+  final String lon;
+  final String display_name;
+  final String class_entity;
+  final String type; //college, university, pharmacy, residential, city_gate
+  final double importance;
+  final String icon;
   /**
    *
    *"address": {
@@ -30,12 +30,12 @@ class Place{
    *
    *
    */
-  Map address;
+  final  Map address;
 
-  List<String> boundingbox;
+  final List<String> boundingbox;
 
 
-  Place(this.place_id, this.osm_id, this.osm_type, this.licence, this.lat,
+  const Place(this.place_id, this.osm_id, this.osm_type, this.licence, this.lat,
       this.lon, this.display_name, this.class_entity, this.type,
       this.importance, this.icon, this.address, this.boundingbox);
 

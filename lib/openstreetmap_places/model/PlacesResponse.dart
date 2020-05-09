@@ -4,9 +4,9 @@ import 'package:open_street_map_widget/openstreetmap_places/model/Place.dart';
 
 class PlacesResponse{
 
-  List<Place> data;
+  final List<Place> data;
 
-  PlacesResponse(this.data);
+  const PlacesResponse(this.data);
 
   static PlacesResponse fromJson(String json){
 

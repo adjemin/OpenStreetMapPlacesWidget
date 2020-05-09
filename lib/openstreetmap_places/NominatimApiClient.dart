@@ -9,49 +9,47 @@ class NominatimApiClient{
 
   static final String BASE_API_URL = "https://nominatim.openstreetmap.org";
 
-  static Future searchPlaces(String query, String countrycodes, [int limit = 100] )async{
+  static Future<PlacesResponse> searchPlaces(String query, String countrycodes, [int limit = 100] )async{
 
-    String q = query == null ? "" : query.toLowerCase();
-    String countryCode = countrycodes.toLowerCase();
+    final String q = query == null ? "" : query.toLowerCase();
+    final String countryCode = countrycodes.toLowerCase();
 
-    String url = "$BASE_API_URL/search?q=$q&countrycodes=$countryCode&format=json&addressdetails=1&limit=${limit >0 ?limit: 100 }";
+    final String url = "$BASE_API_URL/search?q=$q&countrycodes=$countryCode&format=json&addressdetails=1&limit=$limit";
 
-    var response = await http.get(
-        url
-    );
+    final http.Response response = await http.get(url);
 
     if(response.statusCode == 200){
-      String jsonString  = response.body;
+      final String jsonString  = response.body;
 
       print("RESULT >> $jsonString");
 
       return PlacesResponse.fromJson(jsonString);
     }else{
-      return response;
+      throw response;
     }
 
   }
 
-  static Future findPlacesByLocation(String latitude, String longitude, [String zoom = "18"] )async{
+  static Future<Place> findPlacesByLocation(String latitude, String longitude, [String zoom = "18"] )async{
 
-    String url = "$BASE_API_URL/reverse?format=json&lat=$latitude&lon=$longitude&zoom=$zoom&addressdetails=1";
+    final String url = "$BASE_API_URL/reverse?format=json&lat=$latitude&lon=$longitude&zoom=$zoom&addressdetails=1";
 
-    var response = await http.get(
+    final http.Response response = await http.get(
         url
     );
 
     if(response.statusCode == 200){
-      String jsonString  = response.body;
-      Map jsonMap = jsonDecode(jsonString);
+
+      final Map jsonMap = jsonDecode(response.body);
       if(jsonMap.containsKey('error')){
-        return response;
+        throw response;
       }else if(jsonMap.containsKey('place_id')){
         return Place.fromJson(jsonMap);
       }else{
-        return response;
+        throw response;
       }
     }else{
-      return response;
+      throw response;
     }
 
   }

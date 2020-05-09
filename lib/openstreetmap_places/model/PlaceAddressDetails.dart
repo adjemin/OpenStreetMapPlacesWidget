@@ -1,26 +1,29 @@
 class PlaceAddressDetails{
 
 
-  String placeType;
+  final String placeType;
 
-  String college;
+  final String college;
 
-  String country;
+  final String country;
 
-  String country_code;
+  final String country_code;
 
-  String region;
+  final  String region;
 
-  String suburb;
+  final String suburb;
 
-  String city;
+  final String city;
 
-  String state;
+  final String state;
 
-  String state_district;
+  final String state_district;
 
-  String postcode;
+  final String postcode;
 
+  PlaceAddressDetails(this.placeType, this.college, this.country,
+      this.country_code, this.region, this.suburb, this.city, this.state,
+      this.state_district, this.postcode);
 
 
 }

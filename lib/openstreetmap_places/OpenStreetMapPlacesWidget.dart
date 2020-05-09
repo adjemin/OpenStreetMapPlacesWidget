@@ -10,7 +10,7 @@ import 'package:latlong/latlong.dart';
 import 'package:open_street_map_widget/openstreetmap_places/CountryData.dart';
 import 'package:open_street_map_widget/openstreetmap_places/CountryModel.dart';
 import 'package:open_street_map_widget/openstreetmap_places/NominatimApiClient.dart';
-import 'package:open_street_map_widget/openstreetmap_places/model/OpenStreetMapPlacesAutoCompleteWidget.dart';
+import 'package:open_street_map_widget/openstreetmap_places/OpenStreetMapPlacesAutoCompleteWidget.dart';
 import 'package:open_street_map_widget/openstreetmap_places/model/Place.dart';
 
 import '../util/country_picker/flutter_country_picker.dart';
@@ -301,7 +301,7 @@ class _OpenStreetMapPlacesWidgetState extends State<OpenStreetMapPlacesWidget> {
   void hideProgressDialog()async{
     await pr.hide();
   }
-  findPlaceByLocation(LatLng latLng){
+  void findPlaceByLocation(LatLng latLng){
 
     showProgressDialog();
 
@@ -310,9 +310,6 @@ class _OpenStreetMapPlacesWidgetState extends State<OpenStreetMapPlacesWidget> {
 
           hideProgressDialog();
 
-      if(value != null && value is Response){
-
-      }
 
       if(value != null && value is Place){
 

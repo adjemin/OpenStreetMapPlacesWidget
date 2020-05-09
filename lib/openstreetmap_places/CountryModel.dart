@@ -1,12 +1,12 @@
 class CountryModel{
-  String name;
-  String country_code;
-  String capital;
-  List<double> latlng;
+  final String name;
+  final String country_code;
+  final String capital;
+  final List<double> latlng;
 
-  List<String> timezones;
+  final List<String> timezones;
 
-  CountryModel(this.name, this.country_code, this.capital, this.latlng,
+  const CountryModel(this.name, this.country_code, this.capital, this.latlng,
       this.timezones);
 
   static CountryModel fromJson(Map map){

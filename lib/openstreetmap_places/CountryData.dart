@@ -5,9 +5,6 @@ import 'package:open_street_map_widget/openstreetmap_places/CountryModel.dart';
 
 class CountryData{
 
-
-
-
   static Future<List<CountryModel>> load(BuildContext context)async{
 
     String json = await DefaultAssetBundle.of(context).loadString("assets/countries.json");

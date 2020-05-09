@@ -144,7 +144,7 @@ class _OpenStreetMapPlacesAutoCompleteWidgetState extends State<OpenStreetMapPla
     );
   }
 
-  search(String query){
+  void search(String query){
 
     if (mounted && query.isNotEmpty) {
 
@@ -155,10 +155,6 @@ class _OpenStreetMapPlacesAutoCompleteWidgetState extends State<OpenStreetMapPla
 
       NominatimApiClient.searchPlaces(query, countryCode)
           .then((value){
-
-        if(value != null && value is Response){
-          hasError = true;
-        }
 
         if(value != null && value is PlacesResponse){
 
@@ -174,6 +170,9 @@ class _OpenStreetMapPlacesAutoCompleteWidgetState extends State<OpenStreetMapPla
 
         print('Error $error');
 
+        if(error != null && error is Response){
+          hasError = true;
+        }
 
 
         if(mounted){
