@@ -1,7 +1,7 @@
 # OpenStreetMapWidget
 
 OpenStreetMapWidget allows you to add location picker and place autocompletion on your Flutter projet (Android and IOS).
-
+It is based on Nominatim (https://nominatim.openstreetmap.org) Restful API
 ![alt text](https://i.imgur.com/o9KKNv5l.jpg)
 ![alt text](https://i.imgur.com/wihYshZl.jpg)
 ![alt text](https://i.imgur.com/RYVuNFKl.jpg)
