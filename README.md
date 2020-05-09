@@ -9,8 +9,6 @@ OpenStreetMapWidget allows you to add location picker and place autocompletion o
 
 ## Getting Started
 
-**1.** Step 1
-
 Add the package into pubspec.yaml
 
 ```
@@ -40,8 +38,8 @@ flutter:
     - assets/flags/
 
 ```
-Don't forget to add this file assets/countries.json and this folder assets/flags/ to your project.
-Please Copy this packages openstreetmap_places and util to your lib folder.
+Don't forget to add this file **assets/countries.json** and this folder **assets/flags/** to your project.
+Please Copy this packages **openstreetmap_places** and **util** to your lib folder.
 
 Android
 --------------------------------
