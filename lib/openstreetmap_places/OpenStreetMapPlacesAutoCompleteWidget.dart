@@ -154,17 +154,14 @@ class _OpenStreetMapPlacesAutoCompleteWidgetState extends State<OpenStreetMapPla
 
 
       NominatimApiClient.searchPlaces(query, countryCode)
-          .then((value){
+          .then((PlacesResponse value){
 
-        if(value != null && value is PlacesResponse){
-
-          if(mounted){
-            setState(() {
-              locationResults = value.data;
-              _searching = false;
-            });
-          }
-        }
+            if(mounted){
+              setState(() {
+                locationResults = value.data;
+                _searching = false;
+              });
+            }
 
       }).catchError((error){
 

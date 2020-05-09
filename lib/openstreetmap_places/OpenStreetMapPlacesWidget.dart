@@ -306,21 +306,16 @@ class _OpenStreetMapPlacesWidgetState extends State<OpenStreetMapPlacesWidget> {
     showProgressDialog();
 
     NominatimApiClient.findPlacesByLocation(latLng.latitude.toString(), latLng.longitude.toString())
-        .then((value){
+        .then((Place value){
 
           hideProgressDialog();
 
-
-      if(value != null && value is Place){
-
-        if(mounted){
-          setState(() {
-            _currentPlace = value;
-            _currentCountry = Country.findByIsoCode((value.address['country_code'] as String).toUpperCase());
-          });
-        }
-
-      }
+          if(mounted){
+            setState(() {
+              _currentPlace = value;
+              _currentCountry = Country.findByIsoCode((value.address['country_code'] as String).toUpperCase());
+            });
+          }
 
     }).catchError((error){
 
