@@ -41,6 +41,7 @@ flutter:
 
 ```
 Don't forget to add this file assets/countries.json and this folder assets/flags/ to your project.
+Please Copy this packages openstreetmap_places and util to your lib folder.
 
 Android
 --------------------------------
