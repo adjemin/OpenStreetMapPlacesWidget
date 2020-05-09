@@ -9,7 +9,7 @@ OpenStreetMapWidget allows you to add location picker and place autocompletion o
 
 ## Getting Started
 
-### Step 1
+**1.** Step 1
 
 Add the package into pubspec.yaml
 
@@ -40,6 +40,26 @@ flutter:
     - assets/flags/
 
 ```
+Don't forget to add this file assets/countries.json and this folder assets/flags/ to your project.
+
+Android
+--------------------------------
+And to use it in Android, you have to add this permission in android/app/src/main/AndroidManifest.xmlInfo.plist :
+```
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+```
+
+iOS
+--------------------------------
+And to use it in iOS, you have to add this permission in Info.plist :
+```
+NSLocationWhenInUseUsageDescription
+NSLocationAlwaysUsageDescription
+```
+
+
 
 ## Example
 ```
